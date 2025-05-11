@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anneler Günü Mesajı</title>
+  <style>
+    body {
+      background-color: #fff8f0;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #e91e63;
+    }
+
+    #message {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      min-height: 120px;
+      white-space: pre-wrap;
+    }
+
+    button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #f50057;
+    }
+
+    /* Ortalanmış ve tam ekran resim */
+    #surpriseImage {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Canım Annem 💖</h1>
+  <div id="message"></div>
+  <button onclick="showSurprise()">🎁 Sürprize Tıkla!</button>
+  <img id="surpriseImage" src="annem.jpg.jpeg" alt="Sürpriz Resim" />
+
+  <script>
+    const messageText = `Dünyadaki en güzel kalp senin kalbin 💗
+Senin sevgin her şeye değer...
+Anneler Günün kutlu olsun canım annem!`;
+
+    let i = 0;
+    const speed = 50;
+
+    function typeMessage() {
+      if (i < messageText.length) {
+        document.getElementById("message").innerHTML += messageText.charAt(i);
+        i++;
+        setTimeout(typeMessage, speed);
+      }
+    }
+
+    function showSurprise() {
+      document.getElementById("surpriseImage").style.display = "block";
+    }
+
+    window.onload = typeMessage;
+  </script>
+</body>
+</html>
